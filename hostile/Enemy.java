@@ -1,7 +1,6 @@
 package hostile;
 
 import item.Weapon;
-import item.weapons.*;
 
 public class Enemy {
     public String name;
