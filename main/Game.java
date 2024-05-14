@@ -1,27 +1,28 @@
 package main;
 
-import hostile.Fight;
-import map.*;
-import map.room.*;
-import java.util.Scanner;
+// Library Imports
+import hostile.Fight; // Used to allow the player to fight an enemy in their current room
+import map.*; // Used to reference the Room and RoomChange classes
+import map.room.Room01; // Used to import the currentRoom variable
+import java.util.Scanner; // Used to import the scanner which is used to receive inputs from the user
 
 public class Game {
-    Scanner scanner = new Scanner(System.in);
-    Fight fight = new Fight();
-    public static Room currentRoom = new Room01();
+    Scanner scanner = new Scanner(System.in); // Initializes the scanner
+    Fight fight = new Fight(); // Creates an instance of the Fight class
+    public static Room currentRoom = new Room01(); // Creates a static variable that stores
 
-    public void playerAction() {
+    public void playerAction() { // Used for letting the player take an action
         System.out.println("What would you like to do?");
-        String playerChoice = scanner.nextLine().toLowerCase();
+        String playerChoice = scanner.nextLine().toLowerCase(); // Gets a lower case version of an input from the player
         System.out.println();
-        String[] words = playerChoice.split("\\s+", 2);
-        String firstWord = words[0];
-        String restOfWords = "";
-        String commandType;
-        if (words.length > 1) {
+        String[] words = playerChoice.split("\\s+", 2); // Separates the input from the user into an array with an index for each word
+        String firstWord = words[0]; // Sets the first word in the array to the first word inputted
+        String restOfWords = ""; // Creates the String restOfWords, already initialised
+        String commandType; // Creates the string commandType, to be used later, in the case of the user inputting 'help'
+        try { // Attempts to set restOfWords' to the second item in the array 'words'
             restOfWords = words[1];
-        }
-        switch (firstWord) {
+        } catch (NullPointerException _){} // If the slot [1] of the 'words' array is null, ignores the error
+        switch (firstWord) { // Gives different outputs based on what the first word that the user entered is
 
             // Utility Commands
 
