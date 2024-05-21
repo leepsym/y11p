@@ -1,6 +1,7 @@
 package map.room;
 
-import map.Room;
+// Library Imports
+import map.Room; // Imports the Room class from the map package to be used in referencing the direction of the next room
 
 public class Room01 extends Room {
     

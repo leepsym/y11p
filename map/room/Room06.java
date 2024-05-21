@@ -1,8 +1,9 @@
 package map.room;
 
-import hostile.enemy.Skeleton;
-import item.weapons.RustedShortSword;
-import map.Room;
+// Library Imports
+import hostile.enemy.Skeleton; // Imports the Skeleton class from the hostile.enemy package
+import item.weapons.RustedShortSword; // Imports the RustedShortSword class from the item.weapons package
+import map.Room; // Imports the Room class from the map package to be used in referencing the direction of the next room
 
 public class Room06 extends Room {
 

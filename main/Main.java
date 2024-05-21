@@ -19,24 +19,10 @@ public class Main {
         System.out.println("Hello adventurer.");
         System.out.println("Welcome to the dungeon!");
         System.out.println();
-        System.out.println("The first layer of the dungeon will be a tutorial level.");
-        tutorialChoice(); // The player chooses whether to play the tutorial
-        loadOut(false, tutorialChoice());
+        loadOut(false);
     }
 
-    public boolean tutorialChoice() {
-        System.out.println("Enter 'true' to skip the tutorial or 'false' to proceed with it:");
-        try {
-            return scanner.nextBoolean(); // Returns true or false
-        } catch (InputMismatchException e) { // If the player inputs something other than a boolean, runs the below code
-            System.out.println("Invalid input. Please enter 'true' or 'false'.");
-            scanner.nextLine(); // Removes the invalid input
-            return tutorialChoice(); // Retry getting the players choice
-        }
-    }
-
-    public void loadOut(boolean stringCaught, boolean skipTutorial) {
-        RoomChange roomChange = new RoomChange(); // Initialises the class RoomChange for use
+    public void loadOut(boolean stringCaught) {
         System.out.println(); // Requests the kit the player would like to use
         System.out.println("What kit would you like? (enter the number)");
         System.out.println("1. Warrior");
@@ -50,7 +36,7 @@ public class Main {
             kitChoice = scanner.nextInt(); // Ask te user for the kit being used
         } catch (InputMismatchException e) { // Catch if the user inputs something other than an integer
             System.out.println("Integer Only. . .");
-            loadOut(true, skipTutorial); // Retry the request for the loadOut choice
+            loadOut(true); // Retry the request for the loadOut choice
         }
         switch (kitChoice) {
             case 1 -> { // If user inputs '1', give them these items
@@ -68,13 +54,11 @@ public class Main {
             }
             default -> { // If the user inputs anything other than '1' or '2', retry the request for the loadOut choice
                 System.out.println("Invalid kit.");
-                loadOut(true, skipTutorial);
+                loadOut(true);
             }
         }
         System.out.println("You wake up in a cave, dizzy, and with no memories. . .");
-        if (!skipTutorial) { // If the user does not want to skip the tutorial, start them at the beginning of the tutorial
-            roomChange.enterRoom(new Room01(), new Room01());
-        }
+        RoomChange.enterRoom(new Room01(), new Room01());
     }
 
     public static void finish(){ // When the player chooses to end the mission, exits the game

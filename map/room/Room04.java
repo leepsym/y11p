@@ -1,8 +1,9 @@
 package map.room;
 
-import hostile.enemy.Kobold;
-import item.weapons.JaggedDagger;
-import map.Room;
+// Library Imports
+import hostile.enemy.Kobold; // Imports the Kobold class from the hostile.enemy package
+import item.weapons.JaggedDagger; // Imports the JaggedDagger class from the item.weapons package
+import map.Room; // Imports the Room class from the map package to be used in referencing the direction of the next room
 
 public class Room04 extends Room {
 
