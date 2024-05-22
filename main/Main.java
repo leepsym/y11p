@@ -60,9 +60,4 @@ public class Main {
         System.out.println("You wake up in a cave, dizzy, and with no memories. . .");
         RoomChange.enterRoom(new Room01(), new Room01());
     }
-
-    public static void finish(){ // When the player chooses to end the mission, exits the game
-        System.out.println();
-        System.out.println("Thank you for playing!");
-    }
 }
