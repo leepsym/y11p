@@ -1,6 +1,7 @@
 package hostile;
 
-import item.Weapon;
+// Import Libraries
+import item.Weapon; // Imports the Weapon class from the item package for use declaring an enemies weapon
 
 public class Enemy {
     public String name;
