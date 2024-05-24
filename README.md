@@ -10,3 +10,9 @@ Created by: Theo Frazer
 - move (direction)
 - fight (enemy name)
 - help
+
+
+### Credits:
+#### ChatGPT (OpenAI)
+- Created Room Descriptions (changed from original text generated)
+- Assisted with minor bug fixes (unaware of where in code (not recorded))
