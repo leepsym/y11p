@@ -12,7 +12,7 @@ public class Fight {
     Random random = new Random(); // Initialises the Random module for use
 
     public void engage() { // Used for initialising battles between the player and enemies
-        Enemy enemy = Game.currentRoom.getEnemy(); // Sets the enemy variable to the current enemy in the room
+        Enemy enemy = Game.currentRoom.enemy; // Sets the enemy variable to the current enemy in the room
         if ("aeiouAEIOU".indexOf(enemy.name.charAt(0)) != -1) { // Checks if the enemy's name begins with a vowel
             System.out.println("You are now fighting a " + enemy.name + "!");
         } else { // Making sure correct grammar is used.
@@ -88,17 +88,23 @@ public class Fight {
         Room room = Game.currentRoom; // Initialises the room variable as the current room that the player is in
         System.out.println("With that blow the " + enemy.name + " falls, dead.");
         scanner.nextLine();
-        room.setEnemy(null); // Sets the enemy in the room to blank
+        room.enemy = null; // Sets the enemy in the room to blank
         Player.health = 30; // Resets the player's health
-        if (room.directions[0] != null){ // Directs the player to the next exit
-            System.out.println("You have an exit to the north.");
-        } else if (room.directions[1] != null){
-            System.out.println("You have an exit to the east.");
-        } else if (room.directions[2] != null){
-            System.out.println("You have an exit to the south.");
-        } else if (room.directions[3] != null){
-            System.out.println("You have an exit to the west.");
+        if (!enemy.name.equals("Troll")){ // Makes sure the enemy isn't the final enemy
+            if (room.directions[0] != null){ // Directs the player to the next exit
+                System.out.println("You have an exit to the north.");
+            } else if (room.directions[1] != null){
+                System.out.println("You have an exit to the east.");
+            } else if (room.directions[2] != null){
+                System.out.println("You have an exit to the south.");
+            } else if (room.directions[3] != null){
+                System.out.println("You have an exit to the west.");
+            }
+            game.playerAction(); // Sends the player back to take another action
+        } else { // If the player has defeated the troll, end the game
+            System.out.println("As you glance to the south, a glimmer of daylight catches your eye, offering a tantalizing hint of escape. With a sense of relief washing over you, you think to yourself, \"Finally, a way out of here.\" Determined, you stride towards the exit, eager to leave the dark confines of the cavern behind and embrace the freedom waiting beyond.");
+            System.out.println();
+            System.out.println("Thank you for playing!");
         }
-        game.playerAction(); // Sends the player back to take another action
     }
 }

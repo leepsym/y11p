@@ -18,6 +18,7 @@ public class Main {
     public void initiate() { // Initialises the game
         System.out.println("Hello adventurer.");
         System.out.println("Welcome to the dungeon!");
+        System.out.println();
         loadOut(false);
     }
 

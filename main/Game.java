@@ -93,24 +93,6 @@ public class Game {
                             playerAction();
                         }
                         break;
-                    case "up":
-                        if (currentRoom.directions[4] != null) { // Checks if the room above this one has a value
-                            System.out.println("You move up.");
-                            RoomChange.enterRoom(currentRoom, currentRoom.directions[4]); // Uses the 'enterRoom' function in the 'RoomChange' class to move the player through to another room
-                        }else { // If there is no room above this one, ignores the request and asks for a new action
-                            System.out.println("Invalid option.");
-                            playerAction();
-                        }
-                        break;
-                    case "down":
-                        if (currentRoom.directions[5] != null) { // Checks if the room below this one has a value
-                            System.out.println("You move down.");
-                            RoomChange.enterRoom(currentRoom, currentRoom.directions[5]); // Uses the 'enterRoom' function in the 'RoomChange' class to move the player through to another room
-                        }else { // If there is no room below this one, ignores the request and asks for a new action
-                            System.out.println("Invalid option.");
-                            playerAction();
-                        }
-                        break;
                     default:
                         System.out.println("Invalid option.");
                         playerAction();
@@ -120,7 +102,7 @@ public class Game {
 
             // Fight - The player fights an enemy that is occupying the room they are in.
             case "fight":
-                if (currentRoom.getEnemy() != null) { // Checks if there is an enemy in the room
+                if (currentRoom.enemy != null) { // Checks if there is an enemy in the room
                     fight.engage(); // Runs the 'engage' function in the 'Fight' class -> 'fight' is used as method is not static
                 } else { // If there is no enemy in the room, ignores the request and asks for a new action
                     System.out.println("There are no enemies in this room!");
