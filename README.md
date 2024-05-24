@@ -16,3 +16,6 @@ Created by: Theo Frazer
 #### ChatGPT (OpenAI)
 - Created Room Descriptions (changed from original text generated)
 - Assisted with minor bug fixes (unaware of where in code (not recorded))
+
+### Updates Record
+https://github.com/leepsym/y11p
