@@ -5,7 +5,6 @@ import hostile.Enemy; // Imports the Enemy class from the hostile package to be 
 
 public class Room { // Creates a master class for all rooms
     public Room[] directions;
-    public boolean workbench = false;
     public Enemy enemy;
     public String roomDescription;
 }
