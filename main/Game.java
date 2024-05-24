@@ -11,7 +11,7 @@ public class Game {
     Fight fight = new Fight(); // Creates an instance of the Fight class
     public static Room currentRoom = new Room01(); // Creates a static variable that stores
 
-    public void playerAction() throws NullPointerException { // Used for letting the player take an action // If the console receives the error NullPointerException, the game ignores it and carries on
+    public void playerAction() {
         System.out.println("What would you like to do?");
         String playerChoice = scanner.nextLine().toLowerCase(); // Gets a lower case version of an input from the player
         System.out.println();
@@ -19,7 +19,11 @@ public class Game {
         String firstWord = words[0]; // Sets the first word in the array to the first word inputted
         String restOfWords; // Creates the String restOfWords, already initialised
         String commandType; // Creates the string commandType, to be used later, in the case of the user inputting 'help'
-        restOfWords = words[1]; // Attempts to set restOfWords' to the second item in the array 'words'
+        if (words.length == 2) {
+            restOfWords = words[1]; // Attempts to set restOfWords' to the second item in the array 'words'
+        } else {
+            restOfWords = "";
+        }
         switch (firstWord) { // Gives different outputs based on what the first word that the user entered
 
             // Utility Commands
@@ -36,7 +40,7 @@ public class Game {
                         System.out.println("Available commands:");
                         System.out.println();
                         System.out.println("move (direction)");
-                        System.out.println("fight (enemy)");
+                        System.out.println("fight");
                     }
                     case "2" -> {
                         System.out.println("Available commands:");

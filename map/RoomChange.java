@@ -17,13 +17,12 @@ public class RoomChange {
             fight.engage(); // Calls the engage method within an instance of the Fight class
         } else {
             System.out.println(nextRoom.roomDescription); // If there is no enemy in the room, prints the description of the next room
-            Game.currentRoom = nextRoom; // Sets the currentRoom to the new room
-            try { // Attempts code
-                System.out.println("The enemy in this room is a " + nextEnemy.name + ".");
-            } catch (NullPointerException e) { // If nextEnemy.name == null, ignores th error and prints a different line
+            if (nextEnemy != null) { // Checks if there is an enemy in the next room.
+                System.out.println("There is an enemy in this room.");
+            } else {
                 System.out.println("There is no enemy in this room.");
-                System.out.println();
             }
+            Game.currentRoom = nextRoom; // Sets the currentRoom to the new room
         }
         game.playerAction(); // Signals for the player to take another turn
     }

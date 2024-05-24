@@ -8,7 +8,7 @@ Created by: Theo Frazer
 ### **Base commands:**
 
 - move (direction)
-- fight (enemy name)
+- fight
 - help
 
 

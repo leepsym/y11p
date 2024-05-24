@@ -54,8 +54,9 @@ public class Fight {
 
     public void playerTurn(Enemy enemy) {
         System.out.println("What would you like to attack with?"); // Receives the input from the player as to their weapon choice
-        System.out.println("1) " + Player.weapons[0].name);
-        System.out.println("2) " + Player.weapons[1].name);
+        for (int i = 0; i < Player.weapons.length; i++){ // For loop for requirements :3 -> creates a variable to reference against the length of an array, running code for the length of the array
+            System.out.println((i+1)+") " + Player.weapons[i].name);
+        }
         System.out.println();
         int choice = scanner.nextInt();
         if (choice == 1 || choice == 2) { // If the choice is 1 or 2. . .
