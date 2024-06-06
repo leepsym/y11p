@@ -231,7 +231,7 @@ public class Workbench {
         System.out.println("Would you like to continue modifying? (y/n)");
         String modify = input.nextLine();
         if (modify.equals("y")){
-            continueModifying(weapon, weaponPlace);
+            modify(weapon, weaponPlace);
         } else if (modify.equals("n")){
             Player.weapons[weaponPlace] = weapon;
             game.playerAction();
