@@ -39,6 +39,8 @@ public class Workbench {
                             if (points >= (amount)) {
                                 points -= amount;
                                 weapon.hitBonus += (int) (amount / 0.25);
+                                System.out.println("You now have "+points+" points.");
+                                System.out.println("Your Hit Chance is now "+weapon.hitBonus+".");
                                 continueModifying(weapon, weaponPlace);
                             } else {
                                 System.out.println("You don't have enough points to do that! Remove some value from another statistic first.");
@@ -69,6 +71,8 @@ public class Workbench {
                                 points -= amount;
                                 weapon.baseDamage += (int) (amount / 2);
                                 continueModifying(weapon, weaponPlace);
+                                System.out.println("You now have "+points+" points.");
+                                System.out.println("Your damage is now "+weapon.baseDamage+".");
                             } else {
                                 System.out.println("You don't have enough points to do that! Remove some value from another statistic first.");
                                 continueModifying(weapon, weaponPlace);
@@ -85,9 +89,10 @@ public class Workbench {
                         }
                         break;
                     case 3:
-                        System.out.println("You can turn 0.25 points into +1 to your hitChance.");
+                        System.out.println("You can turn 1.5 points into +1 to your damage dice sides.");
                         System.out.println();
-                        System.out.println("Would you like to proceed with this? (true/false)");
+                        System.out.println("Would you like to proceed with this? (y/n)");
+
 
                         if (input.nextBoolean()) {
                             System.out.println("How many times would you like to do this?");
@@ -96,8 +101,10 @@ public class Workbench {
 
                             if (points >= (amount)) {
                                 points -= amount;
-                                weapon.hitBonus += (int) (amount / 1.5);
+                                weapon.damageDiceSides += (int) (amount / 1.5);
                                 continueModifying(weapon, weaponPlace);
+                                System.out.println("You now have "+points+" points.");
+                                System.out.println("You now have "+weapon.damageDiceSides+" sides on your dice.");
                             } else {
                                 System.out.println("You don't have enough points to do that! Remove some value from another statistic first.");
                                 continueModifying(weapon, weaponPlace);
@@ -134,6 +141,8 @@ public class Workbench {
                             if (weapon.hitBonus >= (amount / 0.25)) {
                                 weapon.hitBonus -= amount / 0.25;
                                 points += (int) (amount);
+                                System.out.println("You now have "+points+" points.");
+                                System.out.println("Your damage is now "+weapon.hitBonus+".");
                                 continueModifying(weapon, weaponPlace);
                             } else {
                                 System.out.println("You don't have enough Hit Chance to do that!");
@@ -164,6 +173,8 @@ public class Workbench {
                             if (weapon.baseDamage >= (amount / 2)) {
                                 weapon.baseDamage -= (int) (amount / 2);
                                 points += (int) (amount);
+                                System.out.println("You now have "+points+" points.");
+                                System.out.println("Your damage is now "+weapon.baseDamage+".");
                                 continueModifying(weapon, weaponPlace);
                             } else {
                                 System.out.println("You don't have enough Damage to do that!");
@@ -194,6 +205,8 @@ public class Workbench {
                             if (weapon.damageDiceSides >= (amount / 1.5)) {
                                 weapon.damageDiceSides -= (int) (amount / 1.5);
                                 points += (int) (amount);
+                                System.out.println("You now have "+points+" points.");
+                                System.out.println("You now have "+weapon.damageDiceSides+" sides on your dice.");
                                 continueModifying(weapon, weaponPlace);
                             } else {
                                 System.out.println("You don't have enough sides to do that!");
