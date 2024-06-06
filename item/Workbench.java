@@ -1,6 +1,5 @@
 package item;
 
-import java.util.Objects; // Imports the object module for use as a placeholder
 import java.util.Scanner; // Imports the scanner module to receive inputs from the user
 import main.Game; // Imports the Game class to refer the player back to the playerAction method
 import main.Player;
@@ -18,9 +17,11 @@ public class Workbench {
         System.out.println("3) Extra Damage Dice Sides");
         System.out.println("4) Change Name");
         int modChoice = input.nextInt();
+        input.nextLine();
         if (modChoice != 4) {
-            System.out.println("Would you like to increase or decrease this statistic? (inc/dec)");
-            boolean increase = ((Objects.equals(input.nextLine(), "inc")));
+            System.out.println("Would you like to increase or decrease this statistic? (increase/decrease)");
+            String increaseInput = input.nextLine();
+            boolean increase = (increaseInput.equals("increase"));
 
             if (increase) {
                 System.out.println("You have "+points+" points.");
@@ -34,6 +35,7 @@ public class Workbench {
                         if (input.nextBoolean()) {
                             System.out.println("How many times would you like to do this?");
                             double amount = input.nextInt() * 0.25;
+                            input.nextLine();
 
                             if (points >= (amount)) {
                                 points -= amount;
@@ -61,6 +63,7 @@ public class Workbench {
                         if (input.nextBoolean()) {
                             System.out.println("How many times would you like to do this?");
                             double amount = input.nextInt() * 2;
+                            input.nextLine();
 
                             if (points >= (amount)) {
                                 points -= amount;
@@ -88,6 +91,7 @@ public class Workbench {
                         if (input.nextBoolean()) {
                             System.out.println("How many times would you like to do this?");
                             double amount = input.nextInt() * 1.5;
+                            input.nextLine();
 
                             if (points >= (amount)) {
                                 points -= amount;
@@ -125,6 +129,7 @@ public class Workbench {
                         if (input.nextBoolean()) {
                             System.out.println("How many times would you like to do this?");
                             double amount = input.nextInt() * 0.25;
+                            input.nextLine();
 
                             if (value >= (amount)) {
                                 value -= amount;
@@ -154,6 +159,7 @@ public class Workbench {
                         if (input.nextBoolean()) {
                             System.out.println("How many times would you like to do this?");
                             double amount = input.nextInt() * 2;
+                            input.nextLine();
 
                             if (value >= (amount)) {
                                 value -= amount;
@@ -183,6 +189,7 @@ public class Workbench {
                         if (input.nextBoolean()) {
                             System.out.println("How many times would you like to do this?");
                             double amount = input.nextInt() * 1.5;
+                            input.nextLine();
 
                             if (value >= (amount)) {
                                 value -= amount;
