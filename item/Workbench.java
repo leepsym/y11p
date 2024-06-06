@@ -21,9 +21,8 @@ public class Workbench {
         if (modChoice != 4) {
             System.out.println("Would you like to increase or decrease this statistic? (increase/decrease)");
             String increaseInput = input.nextLine();
-            boolean increase = (increaseInput.equals("increase"));
 
-            if (increase) {
+            if (increaseInput.equals("increase")) {
                 System.out.println("You have "+points+" points.");
 
                 switch (modChoice) {
@@ -40,15 +39,16 @@ public class Workbench {
                             if (points >= (amount)) {
                                 points -= amount;
                                 weapon.hitBonus += (int) (amount / 0.25);
+                                continueModifying(weapon, weaponPlace);
                             } else {
                                 System.out.println("You don't have enough points to do that! Remove some value from another statistic first.");
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             }
                         } else {
                             System.out.println("Would you like to continue modifying?");
 
                             if (input.nextBoolean()){
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             } else {
                                 Player.weapons[weaponPlace] = weapon;
                                 game.playerAction();
@@ -67,16 +67,16 @@ public class Workbench {
 
                             if (points >= (amount)) {
                                 points -= amount;
-                                weapon.hitBonus += (int) (amount / 2);
+                                weapon.baseDamage += (int) (amount / 2);
                             } else {
                                 System.out.println("You don't have enough points to do that! Remove some value from another statistic first.");
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             }
                         } else {
                             System.out.println("Would you like to continue modifying?");
 
                             if (input.nextBoolean()){
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             } else {
                                 Player.weapons[weaponPlace] = weapon;
                                 game.playerAction();
@@ -98,13 +98,13 @@ public class Workbench {
                                 weapon.hitBonus += (int) (amount / 1.5);
                             } else {
                                 System.out.println("You don't have enough points to do that! Remove some value from another statistic first.");
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             }
                         } else {
                             System.out.println("Would you like to continue modifying?");
 
                             if (input.nextBoolean()){
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             } else {
                                 Player.weapons[weaponPlace] = weapon;
                                 game.playerAction();
@@ -113,15 +113,13 @@ public class Workbench {
                         break;
                     default:
                         System.out.println("Invalid choice");
-                        modify(weapon, weaponPlace);
+                        continueModifying(weapon, weaponPlace);
                 }
 
-            } else {
-                double value;
+            } else if (increaseInput.equals("decrease")){
                 switch (modChoice) {
                     case 1:
-                        value = weapon.hitBonus;
-                        System.out.println("Your current Hit Chance is "+value+".");
+                        System.out.println("Your current Hit Chance is "+weapon.hitBonus+".");
                         System.out.println("You can turn -1 from your Hit Chance into +0.25 to your points.");
                         System.out.println();
                         System.out.println("Would you like to proceed with this? (true/false)");
@@ -131,18 +129,19 @@ public class Workbench {
                             double amount = input.nextInt() * 0.25;
                             input.nextLine();
 
-                            if (value >= (amount)) {
-                                value -= amount;
+                            if (weapon.hitBonus >= (amount)) {
+                                weapon.hitBonus -= amount;
                                 points += (int) (amount / 0.25);
+                                
                             } else {
                                 System.out.println("You don't have enough Hit Chance to do that!");
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             }
                         } else {
                             System.out.println("Would you like to continue modifying?");
 
                             if (input.nextBoolean()){
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             } else {
                                 Player.weapons[weaponPlace] = weapon;
                                 game.playerAction();
@@ -150,8 +149,7 @@ public class Workbench {
                         }
                         break;
                     case 2:
-                        value = weapon.baseDamage;
-                        System.out.println("Your current Damage is "+value+".");
+                        System.out.println("Your current Damage is "+weapon.baseDamage+".");
                         System.out.println("You can turn -1 from your Damage into +2 to your points.");
                         System.out.println();
                         System.out.println("Would you like to proceed with this? (true/false)");
@@ -161,18 +159,18 @@ public class Workbench {
                             double amount = input.nextInt() * 2;
                             input.nextLine();
 
-                            if (value >= (amount)) {
-                                value -= amount;
+                            if (weapon.baseDamage >= (amount)) {
+                                weapon.baseDamage -= (int) amount;
                                 points += (int) (amount / 2);
                             } else {
                                 System.out.println("You don't have enough Damage to do that!");
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             }
                         } else {
                             System.out.println("Would you like to continue modifying?");
 
                             if (input.nextBoolean()){
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             } else {
                                 Player.weapons[weaponPlace] = weapon;
                                 game.playerAction();
@@ -180,8 +178,7 @@ public class Workbench {
                         }
                         break;
                     case 3:
-                        value = weapon.damageDiceSides;
-                        System.out.println("You currently have "+value+" sides on your Damage Dice");
+                        System.out.println("You currently have "+weapon.damageDiceSides+" sides on your Damage Dice");
                         System.out.println("You can turn -1 side from your Damage Dice into +1.5 to your points.");
                         System.out.println();
                         System.out.println("Would you like to proceed with this? (true/false)");
@@ -191,18 +188,18 @@ public class Workbench {
                             double amount = input.nextInt() * 1.5;
                             input.nextLine();
 
-                            if (value >= (amount)) {
-                                value -= amount;
+                            if (weapon.damageDiceSides >= (amount)) {
+                                weapon.damageDiceSides -= (int) amount;
                                 points += (int) (amount / 1.5);
                             } else {
                                 System.out.println("You don't have enough sides to do that!");
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             }
                         } else {
                             System.out.println("Would you like to continue modifying?");
 
                             if (input.nextBoolean()){
-                                modify(weapon, weaponPlace);
+                                continueModifying(weapon, weaponPlace);
                             } else {
                                 Player.weapons[weaponPlace] = weapon;
                                 game.playerAction();
@@ -211,14 +208,29 @@ public class Workbench {
                         break;
                     default:
                         System.out.println("Invalid choice");
-                        modify(weapon, weaponPlace);
+                        continueModifying(weapon, weaponPlace);
                 }
+            } else {
+                System.out.println("Invalid choice");
+                continueModifying(weapon, weaponPlace);
             }
         } else {
             System.out.println("What would you like to change the weapon's name to?");
             weapon.name = input.nextLine();
-            modify(weapon, weaponPlace);
+            continueModifying(weapon, weaponPlace);
         }
+        
+    }
+    public static void continueModifying(Weapon weapon, int weaponPlace){
+        Scanner input = new Scanner(System.in);
+        Game game = new Game();
+        System.out.println("Would you like to continue modifying?");
 
+        if (input.nextBoolean()){
+            continueModifying(weapon, weaponPlace);
+        } else {
+            Player.weapons[weaponPlace] = weapon;
+            game.playerAction();
+        }
     }
 }
