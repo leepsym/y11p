@@ -224,13 +224,16 @@ public class Workbench {
     public static void continueModifying(Weapon weapon, int weaponPlace){
         Scanner input = new Scanner(System.in);
         Game game = new Game();
-        System.out.println("Would you like to continue modifying?");
-
-        if (input.nextBoolean()){
+        System.out.println("Would you like to continue modifying? (y/n)");
+        String modify = input.nextLine();
+        if (modify.equals("y")){
             continueModifying(weapon, weaponPlace);
-        } else {
+        } else if (modify.equals("n")){
             Player.weapons[weaponPlace] = weapon;
             game.playerAction();
+        } else {
+            System.out.println("Invalid choice, please enter 'y' or 'n'.");
+            continueModifying(weapon, weaponPlace);
         }
     }
 }
