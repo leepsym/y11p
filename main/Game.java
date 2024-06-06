@@ -18,7 +18,6 @@ public class Game {
         String[] words = playerChoice.split("\\s+", 2); // Separates the input from the user into an array with an index for each word
         String firstWord = words[0]; // Sets the first word in the array to the first word inputted
         String restOfWords; // Creates the String restOfWords, already initialised
-        String commandType; // Creates the string commandType, to be used later, in the case of the user inputting 'help'
         if (words.length == 2) {
             restOfWords = words[1]; // Attempts to set restOfWords' to the second item in the array 'words'
         } else {
@@ -27,30 +26,6 @@ public class Game {
         switch (firstWord) { // Gives different outputs based on what the first word that the user entered
 
             // Utility Commands
-
-            // Help - Gives the user all available command, and how to use them.
-            case "help":
-                System.out.println("What type of command are you looking for? (enter the number)");
-                System.out.println();
-                System.out.println("1) General commands");
-                System.out.println("2) Utility commands");
-                commandType = scanner.nextLine();
-                switch (commandType) {
-                    case "1" -> {
-                        System.out.println("Available commands:");
-                        System.out.println();
-                        System.out.println("move (direction)");
-                        System.out.println("fight");
-                    }
-                    case "2" -> {
-                        System.out.println("Available commands:");
-                        System.out.println();
-                        System.out.println("exit");
-                    }
-                    default -> System.out.println("Invalid option.");
-                }
-                playerAction(); // Sends the player back to take another action.
-                break;
 
             // Exit - The player exits the game.
             case "exit":
