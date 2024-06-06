@@ -2,7 +2,7 @@ package item;
 
 public class Weapon { // Creates a master class for all weapons
     public String name;
-    public int hitBonus;
+    public double hitBonus;
     public int baseDamage;
     public String damageType;
     public int bonusDamage;

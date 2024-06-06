@@ -34,7 +34,7 @@ public class Fight {
     public void enemyTurn(Enemy enemy) {
         System.out.println("The " + enemy.name + enemy.weapon.enemyAttackDescription);
         boolean hits = (random.nextInt(100) + enemy.weapon.hitBonus > 30); // Creates a variable that checks if the value of a random number from 1-100 + the bonus from the enemy is greater than 30, if it is, it sets the variable to true, otherwise, sets it to false
-        int damage = enemy.weapon.baseDamage + Dice.Roll(enemy.weapon.damageDiceSides); // Creates a variable that is set to the randomised damage of the enemies weapon using pre-determined statistics
+        int damage = enemy.weapon.baseDamage + Dice.Roll(enemy.weapon.damageDiceSides); // Creates a variable that is set to the randomised damage to the enemies weapon using pre-determined statistics
         scanner.nextLine();
         if (hits) { // If the enemy does hit the player. . .
             System.out.println("The " + enemy.name + " hits you, dealing " + damage + " damage.");
@@ -64,7 +64,7 @@ public class Fight {
             System.out.println();
             System.out.println(weaponChoice.playerAttackDescription + enemy.name); // Prints out the attack description for the player attacking the enemy
             boolean hits = (random.nextInt(100) + enemy.weapon.hitBonus > 30); // Creates a variable that checks if the value of a random number from 1-100 + the bonus from the player is greater than 30, if it is, it sets the variable to true, otherwise, sets it to false
-            int damage = weaponChoice.baseDamage + Dice.Roll(weaponChoice.damageDiceSides);scanner.nextLine(); // Creates a variable that is set to the randomised damage of the enemies weapon using pre-determined statistics
+            int damage = weaponChoice.baseDamage + Dice.Roll(weaponChoice.damageDiceSides);scanner.nextLine(); // Creates a variable that is set to the randomised damage to the enemies weapon using pre-determined statistics
             if (hits) { // If the player hits the enemy. . .
                 System.out.println("You hit the " + enemy.name + ", dealing " + damage + " damage.");
                 enemy.health -= damage; // Deals the damage to the enemies health
@@ -103,7 +103,7 @@ public class Fight {
             }
             game.playerAction(); // Sends the player back to take another action
         } else { // If the player has defeated the troll, end the game
-            System.out.println("As you glance to the south, a glimmer of daylight catches your eye, offering a tantalizing hint of escape. With a sense of relief washing over you, you think to yourself, \"Finally, a way out of here.\" Remembering how you had been lost in the labyrinthine passages of the Waitomo Caves, you feel a surge of determination. You stride towards the exit, eager to leave the dark confines of the cavern behind and embrace the freedom waiting beyond in the lush, rolling hills."); // The Waitomo caves are a large series of underground passages in the north island of New Zealand
+            System.out.println("As you glance to the south, a glimmer of daylight catches your eye, offering a tantalizing hint of escape. With a sense of relief washing over you, you think to yourself, \"Finally, a way out of here.\" Remembering how you had been lost in the labyrinthine passages of the Waitomo Caves, you feel a surge of determination. You stride towards the exit, eager to leave the dark confines of the cavern behind and embrace the freedom waiting beyond in the lush, rolling hills."); // The Waitomo caves are a large series of underground passages     in the north island of New Zealand
             System.out.println();
             System.out.println("Thank you for playing!");
         }

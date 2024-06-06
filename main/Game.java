@@ -5,6 +5,7 @@ import hostile.Fight; // Used to allow the player to fight an enemy in their cur
 import map.*; // Used to reference the Room and RoomChange classes
 import map.room.Room01; // Used to import the currentRoom variable
 import java.util.Scanner; // Used to import the scanner which is used to receive inputs from the user
+import item.Workbench; // Used to import the Workbench class for use in the playerAction method
 
 public class Game {
     Scanner scanner = new Scanner(System.in); // Initializes the scanner
@@ -26,6 +27,17 @@ public class Game {
         switch (firstWord) { // Gives different outputs based on what the first word that the user entered
 
             // Utility Commands
+
+            // Workbench - The player modifies their weapon/s.
+            case "workbench":
+                System.out.println("What weapon would you like to modify? (number)");
+                System.out.println("1) "+Player.weapons[0].name);
+                System.out.println("2) "+Player.weapons[1].name);
+                int weaponMod = scanner.nextInt();
+                if (weaponMod == 1 || weaponMod == 2){
+                    Workbench.modify(Player.weapons[weaponMod - 1], weaponMod - 1);
+                }
+                break;
 
             // Exit - The player exits the game.
             case "exit":
