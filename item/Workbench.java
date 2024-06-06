@@ -129,9 +129,9 @@ public class Workbench {
                             double amount = input.nextInt() * 0.25;
                             input.nextLine();
 
-                            if (weapon.hitBonus >= (amount)) {
-                                weapon.hitBonus -= amount;
-                                points += (int) (amount / 0.25);
+                            if (weapon.hitBonus >= (amount / 0.25)) {
+                                weapon.hitBonus -= amount / 0.25;
+                                points += (int) (amount);
                                 
                             } else {
                                 System.out.println("You don't have enough Hit Chance to do that!");
@@ -159,9 +159,9 @@ public class Workbench {
                             double amount = input.nextInt() * 2;
                             input.nextLine();
 
-                            if (weapon.baseDamage >= (amount)) {
-                                weapon.baseDamage -= (int) amount;
-                                points += (int) (amount / 2);
+                            if (weapon.baseDamage >= (amount / 2)) {
+                                weapon.baseDamage -= (int) (amount / 2);
+                                points += (int) (amount);
                             } else {
                                 System.out.println("You don't have enough Damage to do that!");
                                 continueModifying(weapon, weaponPlace);
@@ -188,9 +188,9 @@ public class Workbench {
                             double amount = input.nextInt() * 1.5;
                             input.nextLine();
 
-                            if (weapon.damageDiceSides >= (amount)) {
-                                weapon.damageDiceSides -= (int) amount;
-                                points += (int) (amount / 1.5);
+                            if (weapon.damageDiceSides >= (amount / 1.5)) {
+                                weapon.damageDiceSides -= (int) (amount / 1.5);
+                                points += (int) (amount);
                             } else {
                                 System.out.println("You don't have enough sides to do that!");
                                 continueModifying(weapon, weaponPlace);
