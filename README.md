@@ -24,6 +24,9 @@ Created by: Theo Frazer
 #### Mum & Dad
 - Testing
 - Assisted in writing game instructions
-
+### Jake Castle
+- Testing:
+  - Found a susceptible Int collector with an easily triggered InputMismatchException.
+  - Found out that if you die, you continue to receive input requests.
 ### Updates Record
 https://github.com/leepsym/y11p

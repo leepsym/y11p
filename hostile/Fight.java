@@ -4,6 +4,8 @@ package hostile;
 import item.Weapon; // Imports the Weapon class from the item package to reference all classes using it as a superClass
 import main.*; // Imports all classes from the main package for use
 import map.Room; // Imports the Room class from the map package to reference all classes using it as a superClass
+
+import java.util.InputMismatchException;
 import java.util.Scanner; // Imports the Scanner module to receive inputs from the user
 import java.util.Random; // Imports the Random module to generate random numbers
 
@@ -45,6 +47,7 @@ public class Fight {
         }
         if ((Player.health <= 0)) { // Checks if the player's health is 0 or less
             System.out.println("With that blow you fall over, dead.");
+            System.exit(0); // Exits the game
         }else{
             System.out.println("It is now your turn.");
             scanner.nextLine();
@@ -58,7 +61,13 @@ public class Fight {
             System.out.println((i+1)+") " + Player.weapons[i].name);
         }
         System.out.println();
-        int choice = scanner.nextInt();
+        int choice = 0;
+        try {
+            choice = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter an integer.");
+            scanner.nextLine(); // Clear the invalid input from the scanner
+        }
         if (choice == 1 || choice == 2) { // If the choice is 1 or 2. . .
             Weapon weaponChoice = Player.weapons[choice - 1]; // Sets the weapon choice to the corresponding placement within the array
             System.out.println();

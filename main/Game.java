@@ -41,7 +41,7 @@ public class Game {
 
             // Exit - The player exits the game.
             case "exit":
-                break; // Exits the game with Code 0
+                System.exit(0); // Exits the game with Code 0
 
             // General Commands
 
