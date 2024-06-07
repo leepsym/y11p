@@ -21,7 +21,7 @@ Created by: Theo Frazer
 ### Customisation
 - You can customise your weapons using the 'customise' command. 
 - You will be given several prompts as to what you would like to customise.
-- Customisation is based off of a points system, using your hit chance, base damage, and your damage dice. 
+- Customisation is based off on a points system, using your hit chance, base damage, and your damage dice. 
 - You can share points across weapons, so you can create an overpowered weapon, and one with no power.
 - A weapon that hits will always do at least 1 damage.
 - Statistic Values:
