@@ -112,6 +112,20 @@ public class Fight {
             }
             game.playerAction(); // Sends the player back to take another action
         } else { // If the player has defeated the troll, end the game
+            System.out.println("Would you like to examine the hole in the wall? (y/n)");
+            if (scanner.nextLine().equals("y")){
+                System.out.println("You look through the hole, and see a flicker of sunlight.");
+            } else {
+                System.out.println("You do it anyway.");
+                System.out.println("You look through the hole, and see a flicker of sunlight.");
+            }
+            System.out.println("Would you like to place your weapon down, for the last time? (y/n)");
+            if (scanner.nextLine().equals("y")){
+                System.out.println("You put down your weapons, and let out a sigh, as relief flows throughout your body.");
+            } else {
+                System.out.println("You do it anyway.");
+                System.out.println("You put down your weapons, and let out a sigh, as relief flows throughout your body.");
+            }
             System.out.println("As you glance to the south, a glimmer of daylight catches your eye, offering a tantalizing hint of escape. With a sense of relief washing over you, you think to yourself, \"Finally, a way out of here.\" Remembering how you had been lost in the labyrinthine passages of the Waitomo Caves, you feel a surge of determination. You stride towards the exit, eager to leave the dark confines of the cavern behind and embrace the freedom waiting beyond in the lush, rolling hills."); // The Waitomo caves are a large series of underground passages     in the north island of New Zealand
             System.out.println();
             System.out.println("Thank you for playing!");
