@@ -3,7 +3,9 @@ package item;
 import java.util.InputMismatchException; // For use in catching errors
 import java.util.Scanner; // Imports the scanner module to receive inputs from the user
 import main.Game; // Imports the Game class to refer the player back to the playerAction method
-import main.Player;
+import main.Player; // Imports the Player class for use accessing weapons
+import map.Room; // Imports the Room class for use checking for exits
+
 
 public class Workbench {
     public static double points = 0;
@@ -260,12 +262,23 @@ public class Workbench {
     public static void continueModifying(Weapon weapon, int weaponPlace){
         Scanner input = new Scanner(System.in);
         Game game = new Game();
+        Room room = new Room();
+
         System.out.println("Would you like to continue modifying? (y/n)");
         String modify = input.nextLine();
         if (modify.equals("y")){
             modify(weapon, weaponPlace);
         } else if (modify.equals("n")){
             Player.weapons[weaponPlace] = weapon;
+            if (room.directions[0] != null){ // Directs the player to the next exit
+                System.out.println("You have an exit to the north.");
+            } else if (room.directions[1] != null){
+                System.out.println("You have an exit to the east.");
+            } else if (room.directions[2] != null){
+                System.out.println("You have an exit to the south.");
+            } else if (room.directions[3] != null){
+                System.out.println("You have an exit to the west.");
+            }
             game.playerAction();
         } else {
             System.out.println("Invalid choice, please enter 'y' or 'n'.");
