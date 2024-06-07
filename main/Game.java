@@ -29,7 +29,7 @@ public class Game {
             // Utility Commands
 
             // Workbench - The player modifies their weapon/s.
-            case "workbench":
+            case "customise":
                 System.out.println("What weapon would you like to modify? (number)");
                 System.out.println("1) "+Player.weapons[0].name);
                 System.out.println("2) "+Player.weapons[1].name);

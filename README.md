@@ -15,7 +15,19 @@ Created by: Theo Frazer
 - Your basic actions are as follows:
   - move [direction]
   - fight
+  - customise (see reference)
   - exit (closes the game)
+
+### Customisation
+- You can customise your weapons using the 'customise' command. 
+- You will be given several prompts as to what you would like to customise.
+- Customisation is based off of a points system, using your hit chance, base damage, and your damage dice. 
+- You can share points across weapons, so you can create an overpowered weapon, and one with no power.
+- A weapon that hits will always do at least 1 damage.
+- Statistic Values:
+  - 1 Hit Chance => 0.25 points
+  - 1 Base Damage => 2 points
+  - 1 Damage Dice Side => 1.5 points
 
 ### Credits:
 #### ChatGPT (OpenAI)
