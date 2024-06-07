@@ -77,9 +77,9 @@ public class Workbench {
                                 if (points >= (amount)) {
                                     points -= amount;
                                     weapon.baseDamage += (int) (amount / 2);
-                                    continueModifying(weapon, weaponPlace);
                                     System.out.println("You now have " + (int) points + " points.");
                                     System.out.println("Your damage is now " + weapon.baseDamage + ".");
+                                    continueModifying(weapon, weaponPlace);
                                 } else {
                                     System.out.println("You don't have enough points to do that! Remove some value from another statistic first.");
                                     continueModifying(weapon, weaponPlace);
@@ -109,9 +109,9 @@ public class Workbench {
                                 if (points >= (amount)) {
                                     points -= amount;
                                     weapon.damageDiceSides += (int) (amount / 1.5);
-                                    continueModifying(weapon, weaponPlace);
                                     System.out.println("You now have " + (int) points + " points.");
                                     System.out.println("You now have " + weapon.damageDiceSides + " sides on your dice.");
+                                    continueModifying(weapon, weaponPlace);
                                 } else {
                                     System.out.println("You don't have enough points to do that! Remove some value from another statistic first.");
                                     continueModifying(weapon, weaponPlace);
