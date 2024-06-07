@@ -111,7 +111,13 @@ public class Fight {
                 System.out.println("You have an exit to the west.");
             }
             game.playerAction(); // Sends the player back to take another action
-        } else { // If the player has defeated the troll, end the game
+        } else { // If the player has defeated the troll, end the game, and some extra stuff to meet the brief
+            System.out.println("Would you like to pick up the head of the troll you have just killed? (y/n)");
+            if (scanner.nextLine().equals("y")){
+                System.out.println("You pick up the head, a trophy, and stuff it in your rucksack.");
+            } else {
+                System.out.println("You push the head away from you, as the stench makes your sinuses close up");
+            }
             System.out.println("Would you like to examine the hole in the wall? (y/n)");
             if (scanner.nextLine().equals("y")){
                 System.out.println("You look through the hole, and see a flicker of sunlight.");
